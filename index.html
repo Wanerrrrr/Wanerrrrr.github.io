@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio - Waner Li</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="top-left-label">
+  <div class="name">Waner Li</div>
+  <div class="title">Portfolio</div>
+</div>
+
+  <header id="landing">
+    <div class="landing-content">
+      <h1>PORT<br>FOLIO</h1>
+    </div>
+  </header>
+
+  <nav id="main-nav">
+  <div class="nav-left">
+    <div class="top-left-label">
+      <div class="name">Waner Li</div>
+      <div class="title">Portfolio</div>
+    </div>
+  </div>
+
+  <ul class="nav-center">
+  <li class="nav-item active" data-target="landing">
+    <div class="nav-label">
+    <span class="nav-text primary">Home</span>
+    <span class="nav-text hover-slide">Home</span>
+  </div>
+  </li>
+  <li class="nav-item" data-target="about">
+    <div class="nav-label">
+    <span class="nav-text primary">About Me</span>
+    <span class="nav-text hover-slide">About Me</span>
+  </div>
+  </li>
+  <li class="nav-item works-parent" data-target="works">
+  <div class="nav-label">
+    <span class="nav-text primary">Works</span>
+    <span class="nav-text hover-slide">Works</span>
+  </div>
+  <ul class="works-dropdown">
+    <li class="works-filter" data-category="all">All</li>
+    <li class="works-filter" data-category="games">Games</li>
+    <li class="works-filter" data-category="3d-modeling">3D Modeling</li>
+    <li class="works-filter" data-category="other">Other</li>
+  </ul>
+</li>
+
+
+</ul>
+
+
+  <ul class="nav-right">
+    <li class="cta"><button>CONTACT</button></li>
+    <li class="itch-link">
+      <a href="https://wanerrrr.itch.io/" target="_blank" aria-label="Itch.io">
+        <img src="assets/Screenshot 2025-06-05 004041.png" alt="Itch.io" />
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+  <section id="about">
+  <div class="about-3col-container">
+
+    <!-- 左：照片 -->
+    <div class="about-col about-left">
+      <div class="about-photo">
+        <img src="assets/b9155b0ea681e442097fbc4cc72d7021.jpg" alt="Your Photo" />
+      </div>
+    </div>
+
+    <!-- 中：Hello + 自我介绍 + 教育 -->
+    <div class="about-col about-middle">
+      <div class="intro">
+        <h2>HELLO !</h2>
+      <p>My name is Waner Li.</p>
+      <p>
+        I'm a graphic designer based in Paris. Passionate about illustration,
+        I create graphic projects bursting with color. Always ready to
+        experiment and connect with other creatives. Involved in both my
+        projects and the teams that lead them, I dedicate myself fully to
+        bringing to life creations that resonate.
+      </p>
+      </div>
+      <div class="education">
+        <h3>Education</h3>
+        <ul>
+          <li>XXX University, B.A. in Design (2021 - 2025)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 右：项目 + 技能 -->
+    <div class="about-col about-right">
+      <div class="projects">
+        <h3>Projects</h3>
+        <ul>
+          <li>Game A — A puzzle game with ...</li>
+          <li>Game B — A platformer made with ...</li>
+        </ul>
+      </div>
+      <div class="skills">
+        <h3>Skills</h3>
+        <ul>
+          <li>Game Design</li>
+        <li>3D Modeling</li>
+        <li>Graphic Design</li>
+        <li>Video Editing</li>
+        <li>Augmented Reality</li>
+        <li>Handcrafting</li>
+        </ul>
+        <div class="icons-grid">
+          <img src="icon-unity.png" alt="Unity">
+          <img src="icon-ps.png" alt="Photoshop">
+          <img src="icon-ai.png" alt="Illustrator">
+          <!-- 更多图标 -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+  <section id="works">
+  <div class="works-grid">
+    <!-- Example Work Card -->
+    <div class="work-card" data-category="games">
+      <div class="work-card-header">
+        <span class="category-label">Game</span>
+        <span class="date-label">2024-05</span>
+      </div>
+      <div class="img-wrapper">
+        <img src="assets/Screenshot 2025-05-10 211355.png" alt="Work 1" />
+      </div>
+   <div class="corner-dot top-left"></div>
+    <div class="corner-dot bottom-right"></div>
+      <h3>Project Name</h3>
+      <p>This is a short description of the game project.</p>
+    </div>
+    <!-- Repeat for other works -->
+     <div class="work-card" data-category="games">
+      <div class="work-card-header">
+        <span class="category-label">Game</span>
+        <span class="date-label">2024-05</span>
+      </div>
+      <div class="img-wrapper">
+        <img src="assets/Screenshot 2025-05-10 211355.png" alt="Work 1" />
+      </div>
+   <div class="corner-dot top-left"></div>
+    <div class="corner-dot bottom-right"></div>
+      <h3>Project Name</h3>
+      <p>This is a short description of the game project.</p>
+    </div>
+
+    <div class="work-card" data-category="games">
+      <div class="work-card-header">
+        <span class="category-label">Game</span>
+        <span class="date-label">2024-05</span>
+      </div>
+      <div class="img-wrapper">
+        <img src="assets/Screenshot 2025-05-10 211355.png" alt="Work 1" />
+      </div>
+   <div class="corner-dot top-left"></div>
+    <div class="corner-dot bottom-right"></div>
+      <h3>Project Name</h3>
+      <p>This is a short description of the game project.</p>
+    </div>
+
+    <div class="work-card" data-category="games">
+      <div class="work-card-header">
+        <span class="category-label">Game</span>
+        <span class="date-label">2024-05</span>
+      </div>
+      <div class="img-wrapper">
+        <img src="assets/Screenshot 2025-05-10 211355.png" alt="Work 1" />
+      </div>
+   <div class="corner-dot top-left"></div>
+    <div class="corner-dot bottom-right"></div>
+      <h3>Project Name</h3>
+      <p>This is a short description of the game project.</p>
+    </div>
+  </div>
+</section>
+
+  <script src="script.js"></script>
+</body>
+</html>

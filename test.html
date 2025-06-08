@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dropdown Fix</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+    }
+
+    nav {
+      background: #333;
+      padding: 10px 20px;
+    }
+
+    ul.nav-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    li.nav-item {
+      position: relative;
+      margin-right: 20px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .nav-text {
+      color: white;
+      padding: 10px;
+      display: block;
+    }
+
+    .works-dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      min-width: 150px;
+      z-index: 10;
+    }
+
+    .works-dropdown li {
+      padding: 10px;
+      white-space: nowrap;
+      color: black;
+    }
+
+    .works-dropdown li:hover {
+      background-color: #eee;
+    }
+
+    /* 关键逻辑：鼠标悬停时显示 dropdown */
+    .works-parent:hover .works-dropdown {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul class="nav-list">
+      <li class="nav-item works-parent">
+        <span class="nav-text">Works</span>
+        <ul class="works-dropdown">
+          <li>All</li>
+          <li>Games</li>
+          <li>3D Modeling</li>
+          <li>Other</li>
+        </ul>
+      </li>
+      <li class="nav-item"><span class="nav-text">About</span></li>
+      <li class="nav-item"><span class="nav-text">Contact</span></li>
+    </ul>
+  </nav>
+</body>
+</html>

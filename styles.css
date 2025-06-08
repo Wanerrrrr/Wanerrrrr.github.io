@@ -1,0 +1,682 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-red: #e63946; /* 可随时更换 */
+  --main-black: #000000;
+  --main-white: #ffffff;
+  --main-gray: #f2f2f2;
+}
+
+
+.top-left-label {
+  
+  font-weight: bold;
+  font-size: 1.2rem;
+  line-height: 1.4;
+  color: var(--main-black);
+  font-family: Arial, sans-serif;
+  pointer-events: auto;
+}
+
+
+.top-left-label .name {
+  font-size: 1.2rem;
+}
+
+.top-left-label .title {
+  font-size: 1rem;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: #f9f5f0;
+  color: #222;
+}
+
+/* === Landing Section === */
+#landing {
+  height: 100vh;
+  background: #f9f5f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #ccc;
+  transition: opacity 0.6s ease;
+  opacity: 1;
+  position: relative;
+  z-index: 2;
+}
+
+#landing.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.landing-content h1 {
+  font-size: 10rem;
+  text-align: center;
+  line-height: 0.85;
+  letter-spacing: -0.2rem;
+  font-weight: 900;
+  animation: fadeInUp 1.2s ease-out;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* === Navigation === */
+#main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  background: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.nav-left,
+.nav-center,
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-left {
+  flex: 1;
+}
+
+.nav-center {
+  flex: 1;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.nav-right {
+  flex: 1;
+  justify-content: flex-end;
+  gap: 1.5rem;
+}
+
+
+#main-nav.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#main-nav ul {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+#main-nav li {
+  font-size: 1rem;
+}
+
+/* Button */
+#main-nav .cta button {
+  background: black;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Itch.io logo */
+#main-nav .itch-link img {
+  height: 2rem;
+  width: auto;
+  display: block;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+#main-nav .itch-link img:hover {
+  opacity: 1;
+}
+
+/* 选中项样式（有圆角边框） */
+.nav-item.active {
+  border: 2px solid black;
+  border-radius: 999px;
+  padding: 0.3rem 1rem;
+  font-weight: bold;
+}
+.nav-item {
+  position: relative;
+  padding: 0.3rem 1rem;
+  cursor: pointer;
+  height: auto; /* 不要限制高度，避免遮挡 dropdown */
+}
+
+/* 控制动画效果的容器 */
+.nav-label {
+  position: relative;
+  overflow: hidden;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 动画文字本体 */
+.nav-text {
+  display: block;
+  transition: transform 0.3s ease;
+  text-align: center;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.nav-text.primary {
+  transform: translateY(0%);
+}
+
+.nav-text.hover-slide {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  transform: translateY(0%);
+}
+
+/* hover 时滑动 */
+.nav-item:not(.active):hover .primary {
+  transform: translateY(-125%);
+}
+.nav-item:not(.active):hover .hover-slide {
+  transform: translateY(-125%);
+}
+
+/* dropdown 下拉菜单样式保持不变 */
+.works-parent {
+  position: relative;
+}
+
+.works-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  z-index: 9999;
+  min-width: 150px;
+}
+
+.works-parent:hover .works-dropdown {
+  display: block;
+}
+
+.works-dropdown li {
+  padding: 10px;
+  cursor: pointer;
+  color: black;
+}
+.works-dropdown li:hover {
+  background-color: #f0f0f0;
+}
+
+
+
+/* === About Section === */
+#about {
+  padding: 5vw 5vw;
+  margin: 0;
+  max-width: none;
+  opacity: 1;
+  pointer-events: auto;
+}
+#about ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#about ul li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+  font-size: 1rem;
+  color: #333;
+}
+
+#about ul li::before {
+  content: '⯌';
+  color: black;
+  font-size: 1.2rem;
+  position: absolute;
+  left: 0;
+  top: -0.15rem; /* 垂直微调 */
+}
+
+.about-middle h2 {
+  font-size: 5vw;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+.about-3col-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3vw;
+}
+
+/* 三列通用设置 */
+.about-col {
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  
+}
+
+/* 左侧照片 */
+.about-left .about-photo img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+
+/* 标题间距和字体调整 */
+.about-col h2,
+.about-col h3 {
+  margin-bottom: 0.5rem;
+}
+
+.about-col h3 {
+  font-size: 2rem; /* 原来是默认值，改大 */
+  font-weight: 700;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: var(--main-red);
+}
+
+.about-col ul {
+  list-style: disc;
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+.about-col li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+
+
+.icons-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.icons-grid img {
+  width: 36px;
+  height: 36px;
+  opacity: 0.8;
+  transition: transform 0.2s ease;
+}
+.icons-grid img:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* 响应式布局 */
+@media (max-width: 1024px) {
+  .about-3col-container {
+    flex-direction: column;
+  }
+
+  .about-col {
+    width: 100%;
+  }
+
+  .about-col h2,
+  .about-col p,
+  .about-col h3,
+  .about-col li {
+    text-align: center;
+  }
+
+  .icons-grid {
+    justify-content: center;
+  }
+}
+
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-photo,
+  .about-content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .about-content h2,
+  .about-content p,
+  .about-content .interests,
+  .about-content .domain {
+    text-align: center;
+  }
+}
+
+/* works-parent 设为相对定位，方便子菜单绝对定位 */
+.works-parent {
+  position: relative;
+  cursor: pointer;
+}
+
+/* 隐藏 dropdown 默认状态 */
+.works-dropdown {
+  display: none !important;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  z-index: 9999;
+  min-width: 150px;
+}
+
+/* 显示 dropdown when hovering parent */
+.works-parent:hover .works-dropdown {
+  display: block !important;
+}
+
+
+/* 可选美化 */
+.works-dropdown li {
+  padding: 10px;
+  color: black;
+  cursor: pointer;
+}
+
+.works-dropdown li:hover {
+  background-color: #f0f0f0;
+}
+
+/* Work Grid */
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 一行5张 */
+  gap: 1.2rem;
+  padding: 2rem;
+}
+
+/* Work Card */
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.2rem;
+  padding: 2rem;
+}
+@media (max-width: 768px) {
+  .works-grid {
+    grid-template-columns: 1fr; /* 单列 */
+  }
+}
+.work-card {
+  position: relative;
+  border: 2px solid black;
+  border-radius: 16px;
+  padding: 1rem;
+  background-color: white;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  aspect-ratio: 4 / 5;
+  display: flex;
+  flex-direction: column;
+}
+
+.work-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 日期保留右上角 */
+.work-card-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  z-index: 2;
+  position: relative;
+}
+
+/* 图片包一层 wrapper 来裁剪放大的 img */
+.img-wrapper {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.work-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.work-card h3 {
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  margin: 0.5rem 0 0.25rem;
+}
+
+.work-card p {
+  font-size: clamp(0.8rem, 1vw, 1.1rem);
+  flex-grow: 1;
+}
+
+.work-card:hover img {
+  transform: scale(1.1); /* 放大但不影响 wrapper 尺寸 */
+}
+
+/* 四个圆点 */
+/* 通用样式 */
+.corner-dot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: black;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Hover 启动动画 */
+.work-card:hover .corner-dot {
+  opacity: 1;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+/* 四个圆点的位置和各自动画 */
+.corner-dot {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: black;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+
+.work-card:hover .corner-dot {
+  opacity: 1;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+/* 左上角动画 */
+.top-left {
+  top: 0;
+  left: 0;
+  animation-name: orbit-tl;
+  animation-duration: 4s;
+}
+
+/* 右下角动画 */
+.bottom-right {
+  bottom: 0;
+  right: 0;
+  animation-name: orbit-br;
+  animation-duration: 4s;
+}
+
+/* 左上角轨迹顺时针贴边框 */
+@keyframes orbit-tl {
+  0%   { top: -6px; left: -6px; }
+  25%  { top: -6px; left: calc(100% - 6px); }
+  50%  { top: calc(100% - 6px); left: calc(100% - 6px); }
+  75%  { top: calc(100% - 6px); left: -6px; }
+  100% { top: -6px; left: -6px; }
+}
+
+@keyframes orbit-br {
+  0%   { bottom: -6px; right: -6px; }
+  25%  { bottom: -6px; right: calc(100% - 6px); }
+  50%  { bottom: calc(100% - 6px); right: calc(100% - 6px); }
+  75%  { bottom: calc(100% - 6px); right: -6px; }
+  100% { bottom: -6px; right: -6px; }
+}
+
+
+.resume-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  margin-top: 4rem;
+}
+
+.resume-left, .resume-right {
+  flex: 1 1 400px;
+}
+
+.resume-left .education,
+.resume-left .experience,
+.resume-right .skills,
+.resume-right .software-icons {
+  margin-bottom: 2rem;
+}
+
+.resume-left h3,
+.resume-right h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--main-red);
+}
+
+.resume-left ul,
+.resume-right ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* resume-left 和 resume-right 列表项的 bullet 样式 */
+.resume-left ul li,
+.resume-right ul li {
+  position: relative; 
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* 星星样式 */
+.resume-left ul li::before,
+.resume-right ul li::before {
+  content: '⯌';
+  color: black;
+  font-size: 1.2rem;
+  position: absolute;
+  left: 0;
+  top: -0.15rem; /* 可以微调这个让星星垂直居中 */
+}
+
+
+
+.software-icons .icons-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.software-icons .icons-grid img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  opacity: 0.8;
+  transition: transform 0.2s ease;
+}
+
+.software-icons .icons-grid img:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .resume-container {
+    flex-direction: column;
+  }
+
+  .resume-left,
+  .resume-right {
+    width: 100%;
+  }
+
+  .software-icons .icons-grid {
+    justify-content: center;
+  }
+}
+
