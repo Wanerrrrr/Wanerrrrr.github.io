@@ -1,85 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dropdown Fix</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      margin: 0;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Test Grid Filter</title>
+<style>
+  .works-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
 
-    nav {
-      background: #333;
-      padding: 10px 20px;
-    }
+.work-card-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 
-    ul.nav-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-    }
+.work-card {
+  background: #eee;
+  border: 1px solid #ccc;
+  padding: 20px;
+  box-sizing: border-box;
+  height: 100px;
+}
 
-    li.nav-item {
-      position: relative;
-      margin-right: 20px;
-      color: white;
-      cursor: pointer;
-    }
-
-    .nav-text {
-      color: white;
-      padding: 10px;
-      display: block;
-    }
-
-    .works-dropdown {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: white;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-      padding: 0;
-      margin: 0;
-      list-style: none;
-      min-width: 150px;
-      z-index: 10;
-    }
-
-    .works-dropdown li {
-      padding: 10px;
-      white-space: nowrap;
-      color: black;
-    }
-
-    .works-dropdown li:hover {
-      background-color: #eee;
-    }
-
-    /* 关键逻辑：鼠标悬停时显示 dropdown */
-    .works-parent:hover .works-dropdown {
-      display: block;
-    }
-  </style>
+</style>
 </head>
 <body>
-  <nav>
-    <ul class="nav-list">
-      <li class="nav-item works-parent">
-        <span class="nav-text">Works</span>
-        <ul class="works-dropdown">
-          <li>All</li>
-          <li>Games</li>
-          <li>3D Modeling</li>
-          <li>Other</li>
-        </ul>
-      </li>
-      <li class="nav-item"><span class="nav-text">About</span></li>
-      <li class="nav-item"><span class="nav-text">Contact</span></li>
-    </ul>
-  </nav>
+
+<div class="works-grid">
+  <a href="#" class="work-card-link">
+    <div class="work-card" data-category="games">Card 1</div>
+  </a>
+  <a href="#" class="work-card-link">
+    <div class="work-card" data-category="games">Card 2</div>
+  </a>
+  <a href="#" class="work-card-link">
+    <div class="work-card" data-category="3d-modeling">Card 3</div>
+  </a>
+  <a href="#" class="work-card-link">
+    <div class="work-card" data-category="other">Card 4</div>
+  </a>
+</div>
+
+
+<script>
+  function filter(category) {
+  document.querySelectorAll('.work-card-link').forEach(link => {
+    const cat = link.querySelector('.work-card').dataset.category;
+    link.style.display = (category === 'all' || cat === category) ? 'block' : 'none';
+  });
+}
+filter('games'); // 试试看只显示games类别
+
+
+</script>
+
 </body>
 </html>

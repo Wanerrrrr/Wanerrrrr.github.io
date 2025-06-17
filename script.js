@@ -87,6 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         navItems.forEach(item => item.classList.remove('active'));
         const activeItem = document.querySelector(`.nav-item[data-target="${sectionId}"]`);
+
         if (activeItem) activeItem.classList.add('active');
       }
     });
@@ -96,24 +97,34 @@ document.addEventListener("DOMContentLoaded", () => {
   Object.values(sectionMap).forEach(({ section }) => observer.observe(section));
 });
 
-document.querySelectorAll('.works-filter').forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    e.stopPropagation(); // 防止冒泡导致重复触发
+document.querySelectorAll('.works-filter').forEach(li => {
+  li.addEventListener('click', (e) => {
+    e.preventDefault();
+    const category = li.getAttribute('data-category');
+    filter(category);
+  });
+});
 
-    const category = btn.getAttribute('data-category');
+    // ✅ 滚动到 works section
+    document.getElementById('works').scrollIntoView({ behavior: 'smooth' });
 
-    // 显示对应分类的作品卡片
+    // 分类显示
     document.querySelectorAll('.work-card').forEach(card => {
-      const match = card.getAttribute('data-category');
-      card.style.display = (category === 'all' || match === category) ? 'block' : 'none';
-    });
+  const match = card.getAttribute('data-category');
+  if (category === 'all' || match === category) {
+    card.style.display = ''; // 恢复 CSS 默认的 display:flex
+  } else {
+    card.style.display = 'none';
+  }
+});
 
-    // ✅ 给 Works 加上 active class
+
+    // 高亮导航栏的 Works
     document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
     const worksNavItem = document.querySelector('.works-parent');
     if (worksNavItem) worksNavItem.classList.add('active');
-  });
-});
+
+
 
 
 // Clicking "Works" jumps to #works and shows all by default
@@ -122,3 +133,17 @@ document.querySelector('.works-parent').addEventListener('click', () => {
   document.querySelectorAll('.work-card').forEach(card => card.style.display = 'block');
 });
 
+// 过滤后显示的卡片数量和状态
+const cards = document.querySelectorAll('.work-card');
+console.log('全部卡片数量:', cards.length);
+const visibleCards = Array.from(cards).filter(c => c.style.display !== 'none');
+console.log('显示的卡片数量:', visibleCards.length);
+visibleCards.forEach(c => console.log(c.textContent.trim()));
+
+function filter(category) {
+  document.querySelectorAll('.work-card-link').forEach(link => {
+    const cat = link.querySelector('.work-card').dataset.category;
+    link.style.display = (category === 'all' || cat === category) ? 'block' : 'none';
+  });
+}
+filter('other'); // 试试看只显示games类别

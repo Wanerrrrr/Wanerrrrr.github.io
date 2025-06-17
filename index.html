@@ -5,14 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Portfolio - Waner Li</title>
   <link rel="stylesheet" href="styles.css" />
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Fascinate+Inline&family=Freeman&family=Gabarito:wght@400..900&family=Rubik+Spray+Paint&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="top-left-label">
-  <div class="name">Waner Li</div>
-  <div class="title">Portfolio</div>
-</div>
 
-  <header id="landing">
+  <header id="landing"class="main-section active">
     <div class="landing-content">
       <h1>PORT<br>FOLIO</h1>
     </div>
@@ -72,7 +71,7 @@
 </nav>
 
 
-<section id="about">
+<section id="about" class="main-section">
   <div class="about-3col-container">
 
     <!-- 左列：照片 + 环绕介绍 -->
@@ -92,7 +91,7 @@
       <div class="education">
         <h3>Education</h3>
         <div class="edu-entry">
-          <div class="edu-left">2021 - 2025</div>
+          <div class="edu-left"><strong>2021/08-2025/05</strong> </div>
           <div class="edu-right">
             <p><strong>Parsons School of Design</strong> — Bachelor of Design and Technology</p>
           </div>
@@ -100,7 +99,7 @@
       </div>
 
       <div class="projects">
-        <h3>Projects</h3>
+        <h3>Experiences</h3>
         <div class="projects-entry">
           <div class="projects-left">
             <strong>2024/05 - 2024/08</strong>
@@ -146,14 +145,14 @@
         <div class="icons-grid">
           <img src="assets/unity_logo.png" alt="Unity">
           <img src="assets/autodesk-maya-logo-png-img-free-png-autodesk-maya-logo-dlpng-com-256x256.png" alt="Maya">
-          <img src="icon-ai.png" alt="ZBrush">
-          <img src="icon-ai.png" alt="Blender">
-          <img src="icon-ai.png" alt="Substance Painter">
-          <img src="icon-ps.png" alt="Photoshop">
-          <img src="icon-ai.png" alt="Illustrator">
-          <img src="icon-ai.png" alt="After Effects">
-          <img src="icon-ai.png" alt="Premiere Pro">
-          <img src="icon-ai.png" alt="Aero">
+          <img src="assets/zbrush-seeklogo.png" alt="ZBrush">
+          <img src="assets/Blender_logo_no_text.svg.png" alt="Blender">
+          <img src="assets/adobe-substance-3d-painter-icon.png" alt="Substance Painter">
+          <img src="assets/adobe-photoshop-icon.png" alt="Photoshop">
+          <img src="assets/adobe-illustrator-icon.png" alt="Illustrator">
+          <img src="assets/adobe-after-effects-icon.png" alt="After Effects">
+          <img src="assets/adobe-premiere-pro-icon.png" alt="Premiere Pro">
+          <img src="assets/adobe-aero-icon.png" alt="Aero">
           <!-- 更多图标 -->
         </div>
       </div>
@@ -162,37 +161,43 @@
   </div>
 </section>
 
-  <section id="works">
+  <section id="works" class="main-section">
+    <h2>Works</h2>
   <div class="works-grid">
     <!-- Example Work Card -->
+    <a href="BadSeed.html" target="_blank" class="work-card-link">
     <div class="work-card" data-category="games">
       <div class="work-card-header">
         <span class="category-label">Game</span>
-        <span class="date-label">2024-05</span>
+        <span class="date-label">2025-05</span>
       </div>
       <div class="img-wrapper">
-        <img src="assets/Screenshot 2025-05-10 211355.png" alt="Work 1" />
+        <img src="assets/bad_Seed_cover_img.png" alt="Work 1" />
       </div>
    <div class="corner-dot top-left"></div>
     <div class="corner-dot bottom-right"></div>
-      <h3>Project Name</h3>
-      <p>This is a short description of the game project.</p>
+      <h3>Bad Seed</h3>
+      <p>A puzzle game with a juvenile crime backstory. Players can possess others to use different identities and solve environmental puzzles. Targets must be eliminated indirectly, without using weapons.</p>
     </div>
+    </a>
     <!-- Repeat for other works -->
-     <div class="work-card" data-category="games">
+     <a href="tribalchief.html" target="_blank" class="work-card-link">
+     <div class="work-card" data-category="3d-modeling">
       <div class="work-card-header">
-        <span class="category-label">Game</span>
-        <span class="date-label">2024-05</span>
+        <span class="category-label">3d-modeling</span>
+        <span class="date-label">2025-05</span>
       </div>
       <div class="img-wrapper">
-        <img src="assets/Screenshot 2025-05-10 211355.png" alt="Work 1" />
+        <img src="assets/Screenshot 2025-05-10 211355.png" alt="Work 2" />
       </div>
    <div class="corner-dot top-left"></div>
     <div class="corner-dot bottom-right"></div>
-      <h3>Project Name</h3>
+      <h3>Character Modeling-Tribal Chief</h3>
       <p>This is a short description of the game project.</p>
     </div>
+     </a>
 
+     <a href="BadSeed.html" target="_blank" class="work-card-link">
     <div class="work-card" data-category="games">
       <div class="work-card-header">
         <span class="category-label">Game</span>
@@ -206,7 +211,41 @@
       <h3>Project Name</h3>
       <p>This is a short description of the game project.</p>
     </div>
+     </a>
 
+    <a href="BadSeed.html" target="_blank" class="work-card-link">
+    <div class="work-card" data-category="3d-modeling">
+      <div class="work-card-header">
+        <span class="category-label">3d-modeling</span>
+        <span class="date-label">2024-05</span>
+      </div>
+      <div class="img-wrapper">
+        <img src="assets/Screenshot 2025-05-10 211355.png" alt="Work 1" />
+      </div>
+   <div class="corner-dot top-left"></div>
+    <div class="corner-dot bottom-right"></div>
+      <h3>Project Name</h3>
+      <p>This is a short description of the game project.</p>
+    </div>
+    </a>
+
+    <a href="BadSeed.html" target="_blank" class="work-card-link">
+    <div class="work-card" data-category="other">
+      <div class="work-card-header">
+        <span class="category-label">Textile</span>
+        <span class="date-label">2024-05</span>
+      </div>
+      <div class="img-wrapper">
+        <img src="assets/Screenshot 2025-05-10 211355.png" alt="Work 1" />
+      </div>
+   <div class="corner-dot top-left"></div>
+    <div class="corner-dot bottom-right"></div>
+      <h3>Project Name</h3>
+      <p>This is a short description of the game project.</p>
+    </div>
+    </a>
+
+    <a href="BadSeed.html" target="_blank" class="work-card-link">
     <div class="work-card" data-category="games">
       <div class="work-card-header">
         <span class="category-label">Game</span>
@@ -220,6 +259,23 @@
       <h3>Project Name</h3>
       <p>This is a short description of the game project.</p>
     </div>
+    </a>
+
+    <a href="BadSeed.html" target="_blank" class="work-card-link">
+    <div class="work-card" data-category="games">
+      <div class="work-card-header">
+        <span class="category-label">Game</span>
+        <span class="date-label">2024-05</span>
+      </div>
+      <div class="img-wrapper">
+        <img src="assets/Screenshot 2025-05-10 211355.png" alt="Work 1" />
+      </div>
+   <div class="corner-dot top-left"></div>
+    <div class="corner-dot bottom-right"></div>
+      <h3>Project Name</h3>
+      <p>This is a short description of the game project.</p>
+    </div>
+    </a>
   </div>
 </section>
 

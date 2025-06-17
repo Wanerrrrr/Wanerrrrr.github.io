@@ -5,15 +5,15 @@
 }
 
 :root {
-  --main-red: #e63946; /* 可随时更换 */
+  --main-red: #d4435b; /* 可随时更换 */
   --main-black: #000000;
   --main-white: #ffffff;
   --main-gray: #f2f2f2;
 }
 
 
+
 .top-left-label {
-  
   font-weight: bold;
   font-size: 1.2rem;
   line-height: 1.4;
@@ -32,16 +32,21 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Gabarito", sans-serif;
+  font-weight: 450;
   line-height: 1.6;
   background: #f9f5f0;
   color: #222;
 }
 
+strong{
+   font-weight: 1000;
+   font-size: larger;
+}
 /* === Landing Section === */
 #landing {
   height: 100vh;
-  background: #f9f5f0;
+  background: var(--main-red);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -50,6 +55,7 @@ body {
   opacity: 1;
   position: relative;
   z-index: 2;
+    font-family: "Bowlby One SC", sans-serif;
 }
 
 #landing.hide {
@@ -95,7 +101,8 @@ body {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
-  border: 2px solid black;
+  border: 2px solid var(--main-black);
+  background-color: var(--main-white);
 }
 
 
@@ -141,7 +148,7 @@ body {
   background-color: white;
   border: 2px solid black;
   border-radius: 50%;
-  box-shadow: 2px 2px 0px black;
+  box-shadow: 2px 3px 0px black;
   transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
@@ -184,9 +191,9 @@ body {
   border-radius: 999px;
   padding: 0.3rem 1rem;
   font-weight: bold;
-  background-color: #e63946;
+  background-color: var(--main-red);
   color: white;
-  box-shadow: 2px 2px 0px #000;
+  box-shadow: 2px 3px 0px #000;
 }
 .nav-item {
   position: relative;
@@ -245,7 +252,7 @@ body {
   top: 100%;
   left: 0;
   background: white;
-  box-shadow: 2px 2px 0px #000;
+  box-shadow: 2px 3px 0px #000;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -278,6 +285,7 @@ body {
   max-width: none;
   opacity: 1;
   pointer-events: auto;
+  /* background-image: linear-gradient(to right,var(--main-red), rgba(255,0,0,0), var(--main-red)); */
 }
 #about ul {
   list-style: none;
@@ -387,14 +395,16 @@ body {
 
 .about-col h2{
   font-size: 3rem;
+   font-family: "Bowlby One SC", sans-serif;
 }
 
-.about-col h3 {
+.about-col h3,#works h2 {
   font-size: 2rem; /* 原来是默认值，改大 */
   font-weight: 700;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   color: var(--main-red);
+  font-family: "Bowlby One SC", sans-serif;
 }
 
 
@@ -413,10 +423,10 @@ body {
 .about-col .education,
 .about-col .projects,
 .about-col .skills {
-  border: 2px solid #000;
+  border: 2px solid var(--main-black);
   border-radius: 12px;
   padding: 1.2rem;
-  background-color: #fff;
+  background-color: var(--main-white);
 }
 
 .edu-entry {
@@ -462,7 +472,7 @@ body {
   border: 2px solid #000;
   border-radius: 10px;
   background: #fff;
-  box-shadow: 2px 2px 0px #000;
+  box-shadow: 2px 3px 0px #000;
 }
 
 
@@ -523,7 +533,7 @@ body {
   position: absolute;
   top: 100%;
   left: 0;
-  background: white;
+  background: var(--main-white);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   list-style: none;
   margin: 0;
@@ -549,22 +559,32 @@ body {
   background-color: #f0f0f0;
 }
 
-/* Work Grid */
-.works-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 一行5张 */
-  gap: 1.2rem;
-  padding: 2rem;
+#works {
+  padding: 5vw 5vw;
+  margin: 0;
+  max-width: none;
+  opacity: 1;
+  pointer-events: auto;
+  background-color: var(--main-red);
+}
+
+#works h2{
+  color: var(--main-black);
 }
 
 /* Work Card */
 .works-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.2rem;
-  padding: 2rem;
+
 }
-@media (max-width: 768px) {
+@media (max-width: 1500px) {
+  .works-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 800px) {
   .works-grid {
     grid-template-columns: 1fr; /* 单列 */
   }
@@ -578,10 +598,17 @@ body {
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 4 / 6;
   display: flex;
   flex-direction: column;
 }
+
+.work-card-link {
+  display: block; /* 或者 flex */
+  width: 100%;
+  height: 100%;
+}
+
 
 .work-card:hover {
   transform: scale(1.03);
@@ -615,6 +642,7 @@ body {
 .work-card h3 {
   font-size: clamp(1rem, 1.5vw, 1.5rem);
   margin: 0.5rem 0 0.25rem;
+  font-weight: 900;
 }
 
 .work-card p {
@@ -622,8 +650,47 @@ body {
   flex-grow: 1;
 }
 
+@media (max-width: 1500px) {
+  .work-card h3 {
+    font-size: 1.8rem;
+  }
+  .work-card p {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 1200px) {
+  .work-card h3 {
+    font-size: 1.5rem;
+  }
+  .work-card p {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 800px) {
+  .work-card h3 {
+    font-size: 1.6rem;
+  }
+  .work-card p {
+    font-size: 1.1rem;
+  }
+}
+
 .work-card:hover img {
   transform: scale(1.1); /* 放大但不影响 wrapper 尺寸 */
+}
+
+.category-label{
+  border: 2px solid black;
+  border-radius: 999px;
+  padding: 0.1rem 0.5rem;
+  font-weight: bold;
+  box-shadow: 2px 3px 0px #000;
+}
+
+.date-label{
+  border-radius: 999px;
+  padding: 0.1rem 0.5rem;
+  font-weight: bold;
 }
 
 /* 四个圆点 */
@@ -659,13 +726,12 @@ body {
   z-index: 2;
 }
 
-
-.work-card:hover .corner-dot {
-  opacity: 1;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
+.work-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
+
 
 /* 左上角动画 */
 .top-left {
