@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bad Seed</title>
+    <link rel="stylesheet" href="pageStyle.css" />
+
+    <style>
+      body {
+        background: radial-gradient(circle at 30% 30%, #e8f1ff, #5390d1, #e8f1ff, #5390d1, #e8f1ff);
+        background-size: 600% 600%;
+        animation: gradientFlow 30s ease-in-out infinite;
+      }
+    
+      @keyframes gradientFlow {
+        0% {
+          background-position: 0% 0%;
+        }
+        50% {
+          background-position: 100% 100%;
+        }
+        100% {
+          background-position: 0% 0%;
+        }
+      }
+      .tag p{
+        background-color: rgb(0, 46, 120);
+        color: #ebeff7;
+      }
+
+      #starfield {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: -1; /* 放最底层 */
+  overflow: hidden;
+}
+
+.cover, .video-container, .visual-grid {
+  position: relative;
+  z-index: 1; /* 内容层级 */
+}
+
+    </style>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Fascinate+Inline&family=Freeman&family=Gabarito:wght@400..900&family=Rubik+Spray+Paint&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="starfield"></div>
+
+    <div class="cover">
+        <div class="mycoverImage">
+           <img src="assets/3x/popmart_cover.png" alt="CoverImage">
+        </div>
+  
+<div class="cover-content">
+  <div class="cover-left">
+    <div class="tag">
+      <p>Toy Modeling</p>
+      <p>3D</p>
+    </div>
+  
+    <div class="app-icons">
+      <img src="assets/Blender_logo_no_text.svg.png" alt="Blender" />
+      <img src="assets/zbrush-seeklogo.png" alt="ZBrush" />
+      <img src="assets/adobe-photoshop-icon.png" alt="Photoshop" />
+      <!-- 根据需要继续添加 -->
+    </div>
+  </div>
+  
+
+    <div class="cover-right">
+      <p>This project is a high-fidelity 3D recreation of <a 
+        href="https://www.popmart.com/us/products/953/SKULLPANDA-Image-Of-Reality-Series-Figures" 
+        class="highlight-link" 
+        target="_blank" 
+        rel="noopener noreferrer"
+      >
+        Skull Panda – The Imagination
+      </a>, a popular designer toy from POP MART. Using the physical toy figure as a direct reference, I focused on accurately reproducing its proportions, sculptural details, color schemes, and surface materials. 
+
+      </p>
+
+
+  </div>
+</div>
+
+    </div>
+
+<div class="video-container">
+  <video controls>
+    <source src="assets/final_1.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+
+    <div class="visual-grid">
+  <img src="assets/3x/imagination_white.png" alt="Art Style">
+  <img src="assets/3x/imagination2.png" alt="Art Style">
+  <img src="assets/3x/imagination1.png" alt="Art Style">
+  <img src="assets/3x/imagination3.png" alt="Art Style">
+</div>
+
+<script>
+  const starfield = document.getElementById('starfield');
+
+  function createStar() {
+  const star = document.createElement('img');
+  star.classList.add('star');
+  star.src = "assets/3x/star2.png";
+
+  // 随机位置
+  const starfieldWidth = window.innerWidth;
+  const starfieldHeight = window.innerHeight;
+  star.style.left = Math.random() * starfieldWidth + "px";
+  star.style.top = Math.random() * starfieldHeight + "px";
+
+  // ✅ 设置宽高，让每个星星真实尺寸不同
+  const baseSize = Math.random() * 24 + 12; // 12px ~ 36px
+  star.style.width = `${baseSize}px`;
+  star.style.height = "auto"; // 保持原始比例
+
+  // ✅ 加点旋转
+  const rotation = Math.random() * 360;
+  star.style.transform = `rotate(${rotation}deg)`;
+
+  starfield.appendChild(star);
+
+  // 清理
+  setTimeout(() => {
+    star.remove();
+  }, 4000);
+}
+
+
+
+  function randomStarInterval() {
+    const interval = Math.random() * 400 + 100;
+    setTimeout(() => {
+      createStar();
+      randomStarInterval();
+    }, interval);
+  }
+
+  randomStarInterval();
+</script>
+
+
+
+</body>
+</html>

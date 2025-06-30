@@ -86,6 +86,23 @@ body{
   white-space: nowrap;    /* ✅ 保证单个标签不被断行 */
 }
 
+.app-icons {
+  display: flex;
+  gap: 0.7rem;
+  margin-top: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap; /* ✅ 小屏幕时自动换行 */
+}
+
+.app-icons img{
+  width: 48px !important;
+  height: 48px !important;
+  border: 2px solid #000;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 2px 3px 0px #000;
+}
+
 .itch-link {
   display: flex;
   align-items: center;
@@ -199,8 +216,47 @@ p {
   border-radius: 2rem;
   margin: 0;                /* ✅ 移除默认间距 */
   padding: 0;
+  background-color: #ffffff6d;
+}
+
+.highlight-link {
+  font-weight: 700;
+  text-decoration: underline;
+  color: inherit;
+  transition: color 0.2s ease;
+}
+
+.highlight-link:hover {
+  color: var(--main-red); /* 使用你定义的主红色变量 */
+  cursor: pointer;
 }
 
 
+.star {
+  position: absolute;
+  opacity: 0;
+  animation: starFadeMove 4s ease-in-out forwards;
+  transform-origin: center center;
+  will-change: transform, opacity;
+  pointer-events: none;
+}
 
-
+/* 动画：淡入 + 上下浮动 + 淡出 */
+@keyframes starFadeMove {
+  0% {
+    opacity: 0;
+    transform: translateY(0px) scale(1) rotate(var(--rotation, 10deg));
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1) rotate(var(--rotation, 0deg));
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(10px) scale(1) rotate(var(--rotation, 10deg));
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0px) scale(1) rotate(var(--rotation, 0deg));
+  }
+}
