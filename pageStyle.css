@@ -324,3 +324,23 @@ p {
 
 }
 
+
+li {
+  list-style: none;
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+  font-size: 1rem;
+  color: #000000;
+}
+
+li::before {
+  content: '⬖';
+  color: black;
+  font-size: 1.2rem;
+  position: absolute;
+  left: 0;
+  top: -0.15rem; /* 垂直微调 */
+}
+

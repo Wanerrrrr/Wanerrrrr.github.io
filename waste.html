@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The imagination</title>
+    <link rel="stylesheet" href="pageStyle.css" />
+
+    <style>
+      body {
+        background: radial-gradient(circle at 30% 30%, #e8fffb, #53d1be, #e8fffb, #53d1be, #e8fffb);
+        background-size: 600% 600%;
+        animation: gradientFlow 30s ease-in-out infinite;
+      }
+    
+      @keyframes gradientFlow {
+        0% {
+          background-position: 0% 0%;
+        }
+        50% {
+          background-position: 100% 100%;
+        }
+        100% {
+          background-position: 0% 0%;
+        }
+      }
+      .tag p{
+        background-color: rgb(252, 237, 195);
+        color: #0d6558;
+      }
+
+      #starfield {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: -1; /* 放最底层 */
+  overflow: hidden;
+}
+
+.cover, .video-container, .visual-grid {
+  position: relative;
+  z-index: 1; /* 内容层级 */
+}
+
+    </style>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Fascinate+Inline&family=Freeman&family=Gabarito:wght@400..900&family=Rubik+Spray+Paint&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="starfield"></div>
+
+    <div class="cover">
+        <div class="mycoverImage">
+           <img src="assets/3x/uglyfood.png" alt="CoverImage"  class="zoomable">
+        </div>
+  
+<div class="cover-content">
+  <div class="cover-left">
+    <div class="tag">
+      <p>Sustainability</p>
+       <p>Research</p>
+      <p>Strategy</p>
+      <p>Action</p>
+      <p>3D modeling</p>
+      <p>Animation</p>
+      <p>Surface Design</p>
+    </div>
+  
+    <div class="app-icons">
+      <img src="assets/Blender_logo_no_text.svg.png" alt="Blender" />
+      <img src="assets/adobe-after-effects-icon.png" alt="AE" />
+      <img src="assets/adobe-illustrator-icon.png" alt="Illustrator" />
+      <img src="assets/adobe-photoshop-icon.png" alt="Photoshop" />
+      <!-- 根据需要继续添加 -->
+    </div>
+  </div>
+  
+
+    <div class="cover-right">
+      <p>The overarching goal of this project is to research and address the waste and injustices that occur in
+        the vegetable supply system during the agriculture and selling process, which is driven
+        to a large extent by consumers' high cosmetic standards for crop appearance. Because
+        consumers have high cosmetic standards for the appearance of crops, farmers are
+        forced to use fertilizers and pesticides to assist in crop production and ensure that they
+        look good. I aim to shift consumer expectations towards more sustainable and
+        environmentally friendly agricultural practices rather than the good-looking appearance
+        that is highly dependent on chemical inputs. The solution to the problem should
+        simultaneously focus on educational activities, exploring new food retail outlets, and
+        strengthening regulatory measures.
+
+      </p>
+
+
+  </div>
+</div>
+
+    </div>
+
+
+<div class="assetslayout">
+  <h2>Research</h2>
+<h3>ISSUES SUMMARY:</h3>
+<p><strong>Waste of “ugly” crops</strong> 
+  <li>Caused by consumers' high cosmetic
+  standards</li>
+  <strong>Excessive use of pesticides and fertilizers</strong> 
+  <li>They are harmful to human body and pollute
+    the natural environment such as water and soil</li>
+  <strong>Oversuppply</strong> 
+  <li>Unpredictable order fluctuations and last-minute
+    cancellations</li>
+  <strong>Low crop selling price</strong> 
+  <li>Resulted in labor shortage and low harvest rate,
+    food wasted in the field</li>
+  </p>
+  <img src="assets/3x/food_supply_systemmap.png" alt="Art Style" class="zoomable">
+  <img src="assets/3x/food_supply_systemmap2.png" alt="Art Style" class="zoomable">
+</div>
+
+<h2>Strategy</h2>
+<p>All problems are interrelated but all are driven to a
+  large extent by consumers' high cosmetic standards for
+  crop appearance. Because consumers have high cosmetic
+  standards for the appearance of crops, farmers are
+  forced to use fertilizers and pesticides to assist in crop
+  production and ensure that they look good and get paid.
+  I aim to shift consumer expectations towards more
+  sustainable and environmentally friendly agricultural
+  practices rather than the good-looking appearance that is
+  highly dependent on chemical inputs. The solution to the
+  problem should focus on educational activities.</p>
+
+<h2>Pathways for Action</h2>
+<p>
+  <li>Educating consumers and retailers to stop rejecting imperfect-looking
+  vegetables. Through social media or billboards, educate them that
+  imperfect-looking vegetables do not affect their nutritional value and demonstrate
+  the significant environmental impact of food waste.</li>
+  <li>Educate farmers about the adverse effects of excessive pesticide and fertilizer
+  use on human health and the environment. Provide information on alternative
+  practices that can improve soil health, enhance crop resilience, and reduce the
+  need for chemical inputs—for example, organic fertilizer.</li>
+  <li>Farmers and growers can directly sell non-standard agricultural products to
+  consumers through farmers' markets or subscription services as an alternative
+  way for consumers to purchase fresh, locally grown produce that may not meet
+  cosmetic standards for supermarkets but is equally nutritious. Imperfect food can
+  also be donated to food banks for those who cannot afford food or processed into
+  soups or sauces for sale.</li>
+  <li>Strengthen regulatory measures on the sale and use of pesticides and fertilizers,
+  including strict enforcement of pesticide registration and labeling requirements,
+  setting pesticide residue limits, and conducting rigorous pesticide content testing
+  before sale. Simultaneously, implement policies to restrict the use of high-risk
+  pesticides. Provide financial incentives, subsidies, or tax breaks to farmers
+  adopting sustainable agricultural practices.</li></p>
+
+  <h2>Final Deliverables</h2>
+  <p>When consumers buy ugly crops, they can
+    get AR crop mascot by scanning QR codes
+    on food packaging. They can dance. After
+    collecting a certain number of AR mascots,
+    consumers can exchange them for physical
+    items, such as recyclable shopping bags
+    with the same mascot on them.
+    A less traditional and didactic education campaign
+    Consumers will see promotional videos for the event
+    on social platforms and in supermarkets.</p>
+  <h3>Promotional Video</h3>
+<div class="video-container">
+  
+  <video controls>
+    <source src="assets/3x/UglyVegetablesDance_1.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<h3>Shopping Bag Design</h3>
+    <div class="visual-grid">
+  <img src="assets/3x/Ugly apple bag.jpg" alt="Art Style"  class="zoomable">
+  <img src="assets/3x/Ugly carrot bag.jpg" alt="Art Style"  class="zoomable">
+  <img src="assets/3x/Ugly cucumber bag.jpg" alt="Art Style"  class="zoomable">
+    <img src="assets/3x/Ugly eggplant bag.jpg" alt="Art Style"  class="zoomable">
+    <img src="assets/3x/Ugly pepper bag.jpg" alt="Art Style"  class="zoomable">
+    <img src="assets/3x/Ugly strawberry bag.jpg" alt="Art Style"  class="zoomable">
+    <img src="assets/3x/Ugly tomato bag.jpg" alt="Art Style"  class="zoomable">
+</div>
+
+
+
+<script>
+  const starfield = document.getElementById('starfield');
+
+  function createStar() {
+  const star = document.createElement('img');
+  star.classList.add('star');
+  star.src = "assets/3x/star2.png";
+
+  // 随机位置
+  const starfieldWidth = window.innerWidth;
+  const starfieldHeight = window.innerHeight;
+  star.style.left = Math.random() * starfieldWidth + "px";
+  star.style.top = Math.random() * starfieldHeight + "px";
+
+  // ✅ 设置宽高，让每个星星真实尺寸不同
+  const baseSize = Math.random() * 24 + 12; // 12px ~ 36px
+  star.style.width = `${baseSize}px`;
+  star.style.height = "auto"; // 保持原始比例
+
+  // ✅ 加点旋转
+  const rotation = Math.random() * 360;
+  star.style.transform = `rotate(${rotation}deg)`;
+
+  starfield.appendChild(star);
+
+  // 清理
+  setTimeout(() => {
+    star.remove();
+  }, 4000);
+}
+
+
+
+  function randomStarInterval() {
+    const interval = Math.random() * 400 + 100;
+    setTimeout(() => {
+      createStar();
+      randomStarInterval();
+    }, interval);
+  }
+
+  randomStarInterval();
+
+  document.addEventListener("DOMContentLoaded", function () {
+  const modal = document.getElementById("imageModal");
+  const modalImg = document.getElementById("modalImage");
+  const closeBtn = document.querySelector(".close");
+
+  const zoomableImages = document.querySelectorAll(".zoomable");
+
+  zoomableImages.forEach(img => {
+    img.addEventListener("click", () => {
+      modal.style.display = "block";
+      modalImg.src = img.src;
+    });
+  });
+
+  closeBtn.onclick = function () {
+    modal.style.display = "none";
+  };
+
+  window.onclick = function (event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  };
+});
+
+</script>
+
+<div id="imageModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modalImage">
+</div>
+
+
+
+
+</body>
+</html>
