@@ -147,3 +147,4 @@ function filter(category) {
   });
 }
 filter('other'); // 试试看只显示games类别
+

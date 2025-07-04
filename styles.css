@@ -566,6 +566,7 @@ strong{
   opacity: 1;
   pointer-events: auto;
   background-color: var(--main-red);
+  padding-bottom: 3rem;
 }
 
 #works h2{
@@ -576,7 +577,7 @@ strong{
 .works-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.2rem;
+  gap: 0.5% 1.5%;
 
 }
 @media (max-width: 1500px) {
@@ -593,11 +594,10 @@ strong{
   position: relative;
   border: 2px solid black;
   border-radius: 16px;
-  padding: 1rem;
+  padding: 5%;
   background-color: white;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  
   aspect-ratio: 4 / 6;
   display: flex;
   flex-direction: column;
@@ -732,6 +732,23 @@ strong{
   display: block;
 }
 
+.scrollable-description {
+  overflow-y: auto;
+  flex-grow: 1;
+  min-height: 0;
+  margin-top: 0.5rem;
+  padding-bottom: 0.5rem;
+
+  /* 隐藏滚动条 */
+  scrollbar-width: none;           /* Firefox */
+  -ms-overflow-style: none;        /* IE 10+ */
+}
+
+.scrollable-description::-webkit-scrollbar {
+  display: none;                   /* Chrome / Safari */
+}
+
+
 
 /* 左上角动画 */
 .top-left {
@@ -764,6 +781,13 @@ strong{
   50%  { bottom: calc(100% - 6px); right: calc(100% - 6px); }
   75%  { bottom: calc(100% - 6px); right: -6px; }
   100% { bottom: -6px; right: -6px; }
+}
+
+.work-card.placeholder {
+  visibility: hidden;
+  height: 0;
+  margin-bottom: 20%; /* 模拟最后一排的 gap 和 padding-bottom */
+  pointer-events: none;
 }
 
 

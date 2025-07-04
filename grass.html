@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+    <link rel="stylesheet" href="pageStyle.css" />
+
+    <style>
+      body {
+        background: radial-gradient(circle at 30% 30%, #e8f1ff, #5390d1, #e8f1ff, #5390d1, #e8f1ff);
+        background-size: 600% 600%;
+        animation: gradientFlow 30s ease-in-out infinite;
+      }
+    
+      @keyframes gradientFlow {
+        0% {
+          background-position: 0% 0%;
+        }
+        50% {
+          background-position: 100% 100%;
+        }
+        100% {
+          background-position: 0% 0%;
+        }
+      }
+      .tag p{
+        background-color: rgb(16, 145, 123);
+        color: #ebeff7;
+      }
+
+      #starfield {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: -1; /* 放最底层 */
+  overflow: hidden;
+}
+
+.cover, .video-container, .visual-grid {
+  position: relative;
+  z-index: 1; /* 内容层级 */
+}
+
+    </style>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Fascinate+Inline&family=Freeman&family=Gabarito:wght@400..900&family=Rubik+Spray+Paint&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="starfield"></div>
+
+    <div class="cover">
+        <div class="mycoverImage">
+           <img src="assets/3x/grass.jpg" alt="CoverImage"  class="zoomable">
+        </div>
+  
+<div class="cover-content">
+  <div class="cover-left">
+    <div class="tag">
+       <p>3D Modeling</p>
+      <p>Animation</p>
+      <p>3D</p>
+    </div>
+  
+    <div class="app-icons">
+      <img src="assets/autodesk-maya-logo-png-img-free-png-autodesk-maya-logo-dlpng-com-256x256.png" alt="Maya" />
+      <img src="assets/adobe-after-effects-icon.png" alt="AE" />
+      <!-- 根据需要继续添加 -->
+    </div>
+  </div>
+  
+
+    <div class="cover-right">
+      <p>This project is a high-fidelity 3D recreation of <a 
+        href="https://www.popmart.com/us/products/953/SKULLPANDA-Image-Of-Reality-Series-Figures" 
+        class="highlight-link" 
+        target="_blank" 
+        rel="noopener noreferrer"
+      >
+        Skull Panda – The Imagination
+      </a>, a popular designer toy from POP MART. Using the physical toy figure as a direct reference, I focused on accurately reproducing its proportions, sculptural details, color schemes, and surface materials. 
+
+      </p>
+
+
+  </div>
+</div>
+
+    </div>
+
+<div class="video-container">
+  <video autoplay loop muted playsinline>
+    <source src="assets/3x/grass_mash_ani.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+
+    <div class="visual-grid">
+  <img src="assets/3x/grass_1.jpg" alt="Art Style"  class="zoomable">
+  <img src="assets/3x/grass_1.1.png" alt="Art Style"  class="zoomable">
+  <img src="assets/3x/grass_2.jpg" alt="Art Style"  class="zoomable">
+  <img src="assets/3x/grass_2.1.png" alt="Art Style"  class="zoomable">
+  <img src="assets/3x/grass_3.jpg" alt="Art Style"  class="zoomable">
+  <img src="assets/3x/grass_3.1.png" alt="Art Style"  class="zoomable">
+    <img src="assets/3x/grass_4.jpg" alt="Art Style"  class="zoomable">
+    <img src="assets/3x/grass_4,1.png" alt="Art Style"  class="zoomable">
+</div>
+
+<script>
+  const starfield = document.getElementById('starfield');
+
+  function createStar() {
+  const star = document.createElement('img');
+  star.classList.add('star');
+  star.src = "assets/3x/star2.png";
+
+  // 随机位置
+  const starfieldWidth = window.innerWidth;
+  const starfieldHeight = window.innerHeight;
+  star.style.left = Math.random() * starfieldWidth + "px";
+  star.style.top = Math.random() * starfieldHeight + "px";
+
+  // ✅ 设置宽高，让每个星星真实尺寸不同
+  const baseSize = Math.random() * 24 + 12; // 12px ~ 36px
+  star.style.width = `${baseSize}px`;
+  star.style.height = "auto"; // 保持原始比例
+
+  // ✅ 加点旋转
+  const rotation = Math.random() * 360;
+  star.style.transform = `rotate(${rotation}deg)`;
+
+  starfield.appendChild(star);
+
+  // 清理
+  setTimeout(() => {
+    star.remove();
+  }, 4000);
+}
+
+
+
+  function randomStarInterval() {
+    const interval = Math.random() * 400 + 100;
+    setTimeout(() => {
+      createStar();
+      randomStarInterval();
+    }, interval);
+  }
+
+  randomStarInterval();
+
+  document.addEventListener("DOMContentLoaded", function () {
+  const modal = document.getElementById("imageModal");
+  const modalImg = document.getElementById("modalImage");
+  const closeBtn = document.querySelector(".close");
+
+  const zoomableImages = document.querySelectorAll(".zoomable");
+
+  zoomableImages.forEach(img => {
+    img.addEventListener("click", () => {
+      modal.style.display = "block";
+      modalImg.src = img.src;
+    });
+  });
+
+  closeBtn.onclick = function () {
+    modal.style.display = "none";
+  };
+
+  window.onclick = function (event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  };
+});
+
+</script>
+
+<div id="imageModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modalImage">
+</div>
+
+
+
+
+</body>
+</html>

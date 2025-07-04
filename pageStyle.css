@@ -344,3 +344,55 @@ li::before {
   top: -0.15rem; /* 垂直微调 */
 }
 
+@media (min-width: 1921px) {
+  html {
+    font-size: 0.7vw; /* 可调节基准字体大小 */
+  }
+
+  body {
+    font-size: 1.1vw;
+  }
+
+  h1 {
+    font-size: 3vw;
+  }
+
+  h2 {
+    font-size: 2.3vw;
+  }
+
+  h3 {
+    font-size: 2vw;
+  }
+
+  p, li {
+    font-size: 1.1vw;
+  }
+
+  .tag p {
+    font-size: 1vw;
+  }
+
+  .app-icons img {
+    width: 3vw !important;
+    height: 3vw !important;
+  }
+
+  .circle-icon {
+    width: 3vw;
+    height: 3vw;
+  }
+
+  .circle-icon img {
+    width: 2vw !important;
+    height: auto;
+  }
+
+  .close {
+    font-size: 2vw;
+    width: 3vw;
+    height: 3vw;
+  }
+
+  /* 根据你页面中使用的其他组件字体大小继续补充 */
+}
