@@ -679,6 +679,27 @@ strong{
   transform: scale(1.1); /* 放大但不影响 wrapper 尺寸 */
 }
 
+.tagline {
+  font-size: 1.1em;
+  font-weight: 600;
+  font-style: italic;
+  margin-bottom: 0.5em;
+  text-align: center;
+  line-height: 1;
+}
+
+
+.tagline::before {
+  content: '⬖ ';
+  font-size: 1.5em;
+}
+
+.tagline::after {
+  content: ' ⬖';
+  font-size: 1.5em;
+}
+
+
 .category-label{
   border: 2px solid black;
   border-radius: 999px;
