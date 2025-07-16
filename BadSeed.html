@@ -5,25 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bad Seed</title>
     <link rel="stylesheet" href="pageStyle.css" />
+    <style>
+      body {
+        background: radial-gradient(circle at 30% 30%, #ffe8e8, #f9f5f0, #ffe8e8, #f9f5f0, #ffe8e8);
+        background-size: 600% 600%;
+        animation: gradientFlow 30s ease-in-out infinite;
+      }
+    
+      @keyframes gradientFlow {
+        0% {
+          background-position: 0% 0%;
+        }
+        50% {
+          background-position: 100% 100%;
+        }
+        100% {
+          background-position: 0% 0%;
+        }
+      }
+      .tag p{
+        background-color: #d4435b;
+        color: #ebeff7;
+      }
+
+      #starfield {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: -1; /* 放最底层 */
+  overflow: hidden;
+}
+
+.cover, .video-container, .visual-grid {
+  position: relative;
+  z-index: 1; /* 内容层级 */
+}
+
+    </style>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Fascinate+Inline&family=Freeman&family=Gabarito:wght@400..900&family=Rubik+Spray+Paint&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div id="starfield"></div>
+
     <div class="cover">
         <div class="mycoverImage">
-           <img src="assets/bad_Seed_cover_img.png" alt="CoverImage">
+           <img src="assets/bad_Seed_cover_img.png" alt="CoverImage" class="zoomable">
         </div>
   
-  <div class="cover-content">
-    <div class="cover-left">
-      <h1>Bad Seed</h1>
-      <div class="tag">
-        <p>Game Design</p>
-        <p>3D</p>
-        <p>Art</p>
-      </div>
+<div class="cover-content">
+  <div class="cover-left">
+    <div class="tag">
+      <p>Game Design</p>
+      <p>Game Development</p>
+      <p>Puzzle Game</p>
+      <p>Juvenile Crime</p>
+      <p>Level Design</p>
+      <p>3D</p>
+      <p>Stylized</p>
     </div>
+  
+    <div class="app-icons">
+      <img src="assets/autodesk-maya-logo-png-img-free-png-autodesk-maya-logo-dlpng-com-256x256.png" alt="Maya" />
+      <img src="assets/unity_logo.png" alt="Unity" />
+      <img src="assets/adobe-illustrator-icon.png" alt="Illustrator" />
+      <!-- 根据需要继续添加 -->
+    </div>
+  </div>
     <div class="cover-right">
       <p>Bad Seed is a puzzle game based on a backstory of a serious social issue of juvenile crime. Players experience the story from the perspective of a child who witnesses their grandmother being murdered by another child and embarks on a journey of revenge. As the protagonist progresses, their pursuit of justice gradually transforms into a descent into violence, ultimately becoming a juvenile murderer themselves. This creates a tragic, full-circle narrative arc. My goal is to offer a game that entertains, challenges, and provokes thought—encouraging players to reflect on themes of violence, revenge, innocence, and justice.</p>
       <div class="itch-link">
@@ -39,19 +90,22 @@
     </div>
 
 <div class="video-container">
-  <video controls>
-    <source src="assets/final_1.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+  <iframe 
+    src="https://www.youtube.com/embed/C9dYSIrO4Hk" 
+    title="YouTube video"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
 </div>
+
 
     <h2>Art Style & Visual Tone</h2>
     <p>The game adopts a bright, childlike art style, featuring vivid colors, cute character modeling, and stylized shaders such as outlines and halftone effects. This whimsical aesthetic reflects the world as seen through a child’s eyes—playful, innocent, and full of imagination. However, this visual softness stands in stark contrast to the game’s core objective of revenge, creating a powerful sense of irony.</p>
     <div class="visual-grid">
-  <img src="assets/visual_1.jpg" alt="Art Style">
-  <img src="assets/visual_2.jpg" alt="Art Style">
-  <img src="assets/visual_3.jpg" alt="Art Style">
-  <img src="assets/visual_4.jpg" alt="Art Style">
+  <img src="assets/visual_1.jpg" alt="Art Style" class="zoomable">
+  <img src="assets/visual_2.jpg" alt="Art Style" class="zoomable">
+  <img src="assets/visual_3.jpg" alt="Art Style" class="zoomable">
+  <img src="assets/visual_4.jpg" alt="Art Style" class="zoomable">
 </div>
 
 
@@ -82,5 +136,83 @@
     <p>The game incorporated rich sound effects—barking, meowing, torch flames, flowing water, footsteps, elevator movement, item placement, UI button clicks, and more. Some of them are 3D sound, enhancing immersion and serving as gameplay cues.</p>
 
     </div>
+<script>
+  const starfield = document.getElementById('starfield');
+
+  function createStar() {
+  const star = document.createElement('img');
+  star.classList.add('star');
+  star.src = "assets/3x/star2.png";
+
+  // 随机位置
+  const starfieldWidth = window.innerWidth;
+  const starfieldHeight = window.innerHeight;
+  star.style.left = Math.random() * starfieldWidth + "px";
+  star.style.top = Math.random() * starfieldHeight + "px";
+
+  // ✅ 设置宽高，让每个星星真实尺寸不同
+  const baseSize = Math.random() * 24 + 12; // 12px ~ 36px
+  star.style.width = `${baseSize}px`;
+  star.style.height = "auto"; // 保持原始比例
+
+  // ✅ 加点旋转
+  const rotation = Math.random() * 360;
+  star.style.transform = `rotate(${rotation}deg)`;
+
+  starfield.appendChild(star);
+
+  // 清理
+  setTimeout(() => {
+    star.remove();
+  }, 4000);
+}
+
+
+
+  function randomStarInterval() {
+    const interval = Math.random() * 400 + 100;
+    setTimeout(() => {
+      createStar();
+      randomStarInterval();
+    }, interval);
+  }
+
+  randomStarInterval();
+
+  document.addEventListener("DOMContentLoaded", function () {
+  const modal = document.getElementById("imageModal");
+  const modalImg = document.getElementById("modalImage");
+  const closeBtn = document.querySelector(".close");
+
+  const zoomableImages = document.querySelectorAll(".zoomable");
+
+  zoomableImages.forEach(img => {
+    img.addEventListener("click", () => {
+      modal.style.display = "block";
+      modalImg.src = img.src;
+    });
+  });
+
+  closeBtn.onclick = function () {
+    modal.style.display = "none";
+  };
+
+  window.onclick = function (event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  };
+});
+
+</script>
+
+<div id="imageModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modalImage">
+</div>
+
+
+
+
 </body>
 </html>

@@ -150,6 +150,13 @@ body{
   display: block;
 }
 
+.video-container iframe {
+ width: 100%;
+  aspect-ratio: 16 / 9; /* ✅ 保持常见YouTube比例 */
+  display: block;
+  border: none;
+}
+
 .assetslayout{
   width: 100%;
   margin-top: 10vh !important;
