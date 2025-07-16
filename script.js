@@ -59,44 +59,65 @@ document.addEventListener("DOMContentLoaded", () => {
   const sectionMap = {};
 
   navItems.forEach(item => {
-    const targetId = item.getAttribute('data-target');
-    const targetSection = document.getElementById(targetId);
+  const targetId = item.getAttribute('data-target');
+  const targetSection = document.getElementById(targetId);
 
-    if (targetSection) {
+  if (targetSection) {
+    sectionMap[targetId] = {
+      item,
+      section: targetSection
+    };
+
+    // 👇 添加兼容 works-parent 这种特殊情况
+    if (targetId === 'works') {
       sectionMap[targetId] = {
-        item,
+        item: document.querySelector('.works-parent'),
         section: targetSection
       };
-
-      // Smooth scroll on click
-      item.addEventListener('click', () => {
-        targetSection.scrollIntoView({ behavior: 'smooth' });
-      });
     }
-  });
+  }
+});
+
 
   // Intersection Observer to auto-activate nav item
   const observerOptions = {
-    threshold: 0.5
+    threshold: 0.1
   };
 
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const sectionId = entry.target.id;
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const sectionId = entry.target.id;
 
-        navItems.forEach(item => item.classList.remove('active'));
-        const activeItem = document.querySelector(`.nav-item[data-target="${sectionId}"]`);
+      // 清除所有 active
+      navItems.forEach(item => item.classList.remove('active'));
 
-        if (activeItem) activeItem.classList.add('active');
+      // 尝试先找普通 nav-item
+      let activeItem = document.querySelector(`.nav-item[data-target="${sectionId}"]`);
+
+      // 如果是 works，就手动 fallback 到 .works-parent
+      if (!activeItem && sectionId === 'works') {
+        activeItem = document.querySelector('.works-parent');
       }
-    });
-  }, observerOptions);
+
+      if (activeItem) activeItem.classList.add('active');
+    }
+  });
+}, observerOptions);
+
 
   // Start observing each section
   Object.values(sectionMap).forEach(({ section }) => observer.observe(section));
 });
 
+document.querySelector('.works-parent').addEventListener('click', () => {
+    document.getElementById('works').scrollIntoView({ behavior: 'smooth' });
+
+    document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+    const worksNavItem = document.querySelector('.nav-item[data-target="works"]');
+    if (worksNavItem) worksNavItem.classList.add('active');
+  });
+  
 document.querySelectorAll('.works-filter').forEach(li => {
   li.addEventListener('click', (e) => {
     e.preventDefault();

@@ -580,7 +580,7 @@ strong{
   gap: 0.5% 1.5%;
 
 }
-@media (max-width: 1500px) {
+@media (max-width: 1728px) {
   .works-grid {
     grid-template-columns: repeat(3, 1fr);
   }
