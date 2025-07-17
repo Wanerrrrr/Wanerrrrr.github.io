@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wearable Art</title>
+    <link rel="stylesheet" href="pageStyle.css" />
+    <style>
+      body {
+        background: radial-gradient(circle at 30% 30%, #e8f1ff, #5390d1, #e8f1ff, #5390d1, #e8f1ff);
+        background-size: 600% 600%;
+        animation: gradientFlow 30s ease-in-out infinite;
+      }
+    
+      @keyframes gradientFlow {
+        0% {
+          background-position: 0% 0%;
+        }
+        50% {
+          background-position: 100% 100%;
+        }
+        100% {
+          background-position: 0% 0%;
+        }
+      }
+      .tag p{
+        background-color: rgb(0, 46, 120);
+        color: #ebeff7;
+      }
+
+      #starfield {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: -1; /* 放最底层 */
+  overflow: hidden;
+}
+
+.cover, .video-container, .visual-grid {
+  position: relative;
+  z-index: 1; /* 内容层级 */
+}
+
+h2{
+  color: rgb(0, 46, 120);
+}
+
+.details{
+  background-color: rgba(255, 255, 255,0.5);
+}
+.details h3{
+  color: #000000;
+}
+
+    </style>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Fascinate+Inline&family=Freeman&family=Gabarito:wght@400..900&family=Rubik+Spray+Paint&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="starfield"></div>
+
+    <div class="cover">
+        <div class="mycoverImage">
+           <img src="assets/wearable/cover.png" alt="CoverImage" class="zoomable">
+        </div>
+  
+<div class="cover-content">
+  <div class="cover-left">
+    <div class="tag">
+      <p>Wearable Art</p>
+      <p>Paper Folding</p>
+      <p>Nature-Inspired</p>
+      <p>Sculptural Fashion</p>
+      <p>Laser Cutting</p>
+      <p>Mathematical Aesthetics</p>
+      <p>Environment Protection</p>
+    </div>
+  
+    
+  </div>
+    <div class="cover-right">
+      <p>This wearable art project explores the intersection of geometry, nature, and fashion through the creation of a nautilus-inspired ear cuff. Using Bristol board as the primary material and folding and laser cutting techniques as the core construction method, the design draws from the mathematical elegance of the nautilus shell and the broader organic patterns of the marine world.</p><br>
+        <p>This work is both a sculptural fashion accessory and a reflection on the relationship between humans and the natural world, particularly endangered species like the nautilus.
+      </p>
+      
+
+  </div>
+</div>
+
+    </div>
+
+    <div class="assetslayout">
+    <h2>Research</h2>
+    <p><strong>Art, Geometry and Fashion</strong><br>
+      <li>Geometry allows designers to explore space, materiality and form to create innovative and beautiful work. Incorporating geometric principles into the design of wearable items can help establish order and achieve balance, thereby greatly enhancing the visual impact. The concept of combining art, geometry and fashion runs through many of Issey Miyake’s works. Miyake’s designs frequently incorporate folds, three-dimensional cutting, and pleats, making garments appear like wearable sculptures.</li>
+      
+      <strong>Fashion inspired by the natural world</strong><br>
+      <li>Nature has been a source of inspiration for the fashion world for centuries. Designers have consistently drawn inspiration from the beauty, diversity and power of the natural world, incorporating elements such as flowers, feathers and animal prints into their work. This enduring fascination reflects humanity’s complex relationship with nature.</li>
+      
+      <strong>Nautilus</strong><br>
+      <li>The nautilus is a mysterious and ancient marine creature, admired for its elegant spiral shell and the amazing thing is that he has 90 tentacles. The nautilus is often called a “living fossil” because its appearance has remained largely unchanged for over 500 million years. Its significance spans multiple fields, including science, mathematics, and art. However, due to human exploitation and environmental changes, its survival is increasingly threatened.
+
+      </li></p>
+
+      <h3>Digital Reference Board</h3>
+      <img src="assets/wearable/reference.jpg" alt="Art Style" class="zoomable">
+
+      <h2>Design Proposal</h2>
+      <p>I plan to create a ear cuff inspired by the shape of the nautilus. I chose ear cuff because the spiral form of the nautilus have some similarities with the shape of the human ear. I will use folding techniques and repetitive construction of identical elements to create a geometric design that mimics the structure of the nautilus shell.
+
+        The significance of this project lies in its aim to strengthen the connection between humans and nature while raising awareness about the importance of protecting endangered species and urging people to stop destroying natural ecosystems.</p>
+    </div>
+        
+
+    <h2>Process</h2>
+<div class="details">
+    <h3>Ideation-Sketching</h3>
+    <img src="assets/wearable/sketch.png" alt="Art Style">
+
+    <h3>Prototypes</h3>
+    <img src="assets/wearable/prototype.png" alt="Art Style">
+    
+    <h3>Process Photos</h3>
+    <img src="assets/wearable/process.png" alt="Art Style">
+    
+    </div>
+
+    
+   <h2>Final Photos</h2>
+      <div class="visual-grid">
+        <img src="assets/wearable/right.jpg" alt="Art Style"  class="zoomable">
+        <img src="assets/wearable/left.jpg" alt="Art Style"  class="zoomable">
+        <img src="assets/wearable/final2.JPG" alt="Art Style"  class="zoomable">
+        <img src="assets/wearable/final3.PNG" alt="Art Style"  class="zoomable">
+      </div>
+      
+
+    
+<script>
+  const starfield = document.getElementById('starfield');
+
+  function createStar() {
+  const star = document.createElement('img');
+  star.classList.add('star');
+  star.src = "assets/3x/star2.png";
+
+  // 随机位置
+  const starfieldWidth = window.innerWidth;
+  const starfieldHeight = window.innerHeight;
+  star.style.left = Math.random() * starfieldWidth + "px";
+  star.style.top = Math.random() * starfieldHeight + "px";
+
+  // ✅ 设置宽高，让每个星星真实尺寸不同
+  const baseSize = Math.random() * 24 + 12; // 12px ~ 36px
+  star.style.width = `${baseSize}px`;
+  star.style.height = "auto"; // 保持原始比例
+
+  // ✅ 加点旋转
+  const rotation = Math.random() * 360;
+  star.style.transform = `rotate(${rotation}deg)`;
+
+  starfield.appendChild(star);
+
+  // 清理
+  setTimeout(() => {
+    star.remove();
+  }, 4000);
+}
+
+
+
+  function randomStarInterval() {
+    const interval = Math.random() * 400 + 100;
+    setTimeout(() => {
+      createStar();
+      randomStarInterval();
+    }, interval);
+  }
+
+  randomStarInterval();
+
+  document.addEventListener("DOMContentLoaded", function () {
+  const modal = document.getElementById("imageModal");
+  const modalImg = document.getElementById("modalImage");
+  const closeBtn = document.querySelector(".close");
+
+  const zoomableImages = document.querySelectorAll(".zoomable");
+
+  zoomableImages.forEach(img => {
+    img.addEventListener("click", () => {
+      modal.style.display = "block";
+      modalImg.src = img.src;
+    });
+  });
+
+  closeBtn.onclick = function () {
+    modal.style.display = "none";
+  };
+
+  window.onclick = function (event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  };
+});
+
+</script>
+
+<div id="imageModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modalImage">
+</div>
+
+
+
+
+</body>
+</html>
