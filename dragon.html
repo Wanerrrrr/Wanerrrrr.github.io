@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dragon</title>
+    <link rel="stylesheet" href="pageStyle.css" />
+
+    <style>
+      body {
+        background: radial-gradient(circle at 30% 30%, #e8efff, #718eeb, #e8f1ff, #718eeb, #e8f1ff);
+        background-size: 600% 600%;
+        animation: gradientFlow 30s ease-in-out infinite;
+      }
+    
+      @keyframes gradientFlow {
+        0% {
+          background-position: 0% 0%;
+        }
+        50% {
+          background-position: 100% 100%;
+        }
+        100% {
+          background-position: 0% 0%;
+        }
+      }
+      .tag p{
+        background-color: #d4435b;
+        color: #ebeff7;
+      }
+
+      #starfield {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: -1; /* 放最底层 */
+  overflow: hidden;
+}
+
+.cover, .video-container, .visual-grid {
+  position: relative;
+  z-index: 1; /* 内容层级 */
+}
+
+    </style>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Fascinate+Inline&family=Freeman&family=Gabarito:wght@400..900&family=Rubik+Spray+Paint&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="starfield"></div>
+
+    <div class="cover">
+        <div class="mycoverImage">
+           <img src="assets/dragon/render.jpg" alt="CoverImage" class="zoomable">
+        </div>
+  
+<div class="cover-content">
+  <div class="cover-left">
+    <div class="tag">
+      <p>Hard Surface Modeling</p>
+      <p>Organic Modeling</p>
+      <p>PBR Workflow</p>
+      <p>3D</p>
+      <p>Game Asset</p>
+      <p>Low Poly</p>
+      <p>Baking & Texturing</p>
+    </div>
+  
+    <div class="app-icons">
+      <img src="assets/autodesk-maya-logo-png-img-free-png-autodesk-maya-logo-dlpng-com-256x256.png" alt="Maya" />
+      <img src="assets/marmoset.png" alt="marmoset" />
+      <img src="assets/adobe-substance-3d-painter-icon.png" alt="Substance" />
+      <!-- 根据需要继续添加 -->
+    </div>
+  </div>
+  
+
+    <div class="cover-right">
+     <p>This is a realistic 3D robot model I created based on a concept by <a 
+        href="https://nerdscribbles.tumblr.com/post/84928616834" 
+        class="highlight-link" 
+        target="_blank" 
+        rel="noopener noreferrer"
+      >
+        James McDonald
+      </a>. Modeling and texturing were referencing <a 
+        href="https://www.artstation.com/artwork/Aq6r9o" 
+        class="highlight-link" 
+        target="_blank" 
+        rel="noopener noreferrer"
+      >
+        Elena Romanova
+      </a>. The entire asset was built following a full PBR production pipeline: high-poly modeling, low-poly retopology, UV unwrapping, texture baking, and texturing. I created standard PBR maps including base color, roughness, metallic, normal, and emissive.
+
+      The goal of this project was to practice realistic material expression and clean game asset production, focusing on both hard-surface mechanical components and natural elements like plants and mushrooms. The final model is optimized for real-time rendering.
+
+      </p>
+
+  </div>
+</div>
+
+    </div>
+
+<div class="video-container">
+  <video autoplay loop muted playsinline>
+    <source src="assets/dragon/Dragon_Animated.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<div class="video-container">
+  <video autoplay loop muted playsinline>
+    <source src="assets/dragon/rigging.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+
+    <div class="visual-grid">
+  <img src="assets/dragon/white_010.png" alt="Art Style" class="zoomable">
+     <img src="assets/dragon/white_003.png" alt="Art Style" class="zoomable">
+ <img src="assets/dragon/white_009.png" alt="Art Style" class="zoomable">
+  <img src="assets/dragon/white_006.png" alt="Art Style" class="zoomable">
+    <img src="assets/dragon/white_008.png" alt="Art Style" class="zoomable">
+     <img src="assets/dragon/Final_Diffuse.png" alt="Art Style" class="zoomable">
+     
+</div>
+
+<div class="assetslayout">
+    <img src="assets/dragon/render.jpg" alt="Art Style" class="zoomable">
+
+</div>
+
+<script>
+  const starfield = document.getElementById('starfield');
+
+  function createStar() {
+  const star = document.createElement('img');
+  star.classList.add('star');
+  star.src = "assets/3x/star2.png";
+
+  // 随机位置
+  const starfieldWidth = window.innerWidth;
+  const starfieldHeight = window.innerHeight;
+  star.style.left = Math.random() * starfieldWidth + "px";
+  star.style.top = Math.random() * starfieldHeight + "px";
+
+  // ✅ 设置宽高，让每个星星真实尺寸不同
+  const baseSize = Math.random() * 24 + 12; // 12px ~ 36px
+  star.style.width = `${baseSize}px`;
+  star.style.height = "auto"; // 保持原始比例
+
+  // ✅ 加点旋转
+  const rotation = Math.random() * 360;
+  star.style.transform = `rotate(${rotation}deg)`;
+
+  starfield.appendChild(star);
+
+  // 清理
+  setTimeout(() => {
+    star.remove();
+  }, 4000);
+}
+
+
+
+  function randomStarInterval() {
+    const interval = Math.random() * 400 + 100;
+    setTimeout(() => {
+      createStar();
+      randomStarInterval();
+    }, interval);
+  }
+
+  randomStarInterval();
+
+  document.addEventListener("DOMContentLoaded", function () {
+  const modal = document.getElementById("imageModal");
+  const modalImg = document.getElementById("modalImage");
+  const closeBtn = document.querySelector(".close");
+
+  const zoomableImages = document.querySelectorAll(".zoomable");
+
+  zoomableImages.forEach(img => {
+    img.addEventListener("click", () => {
+      modal.style.display = "block";
+      modalImg.src = img.src;
+    });
+  });
+
+  closeBtn.onclick = function () {
+    modal.style.display = "none";
+  };
+
+  window.onclick = function (event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  };
+});
+
+</script>
+
+<div id="imageModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modalImage">
+</div>
+
+
+
+
+</body>
+</html>
