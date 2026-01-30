@@ -73,6 +73,8 @@ body{
   padding: 0;              /* 可选，避免内边距引起偏移 */
 }
 
+
+
 .tag p {
   background: var(--main-red);
   color: white;
@@ -401,5 +403,68 @@ li::before {
     height: 3vw;
   }
 
-  /* 根据你页面中使用的其他组件字体大小继续补充 */
+  @media (max-width: 768px) {
+    .mycoverImage img {
+      border-radius: 3rem !important;
+    }
+
+    .cover-content {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .cover-left,
+    .cover-right {
+      max-width: 100%;
+      width: 100%;
+    }
+
+    .tag {
+      width: 100%;
+      justify-content: flex-start;
+      gap: 0.4rem 0.6rem;
+      margin-top: 1rem;
+    }
+  
+    .tag p {
+      font-size: 0.85rem;
+      padding: 0.25rem 0.6rem;
+      box-shadow: 1px 2px 0px #000;
+    }
+
+    .app-icons {
+      width: 100%;
+      gap: 0.6rem;
+      margin-top: 0.8rem;
+    }
+  
+    .app-icons img {
+      width: 40px !important;
+      height: 40px !important;
+      box-shadow: 1px 2px 0px #000;
+    }
+  
+    .cover-right {
+      max-width: 100%;
+    }
+
+    body {
+      margin: 5%;
+    }
+
+    .close {
+      font-size: 1.8rem;
+      width: 3rem;
+      height: 3rem;
+      top: 1.5rem;
+      right: 1rem;
+    }
+
+    .modal-content {
+      max-width: 95%;
+      max-height: 85%;
+    }
+  
+  }
+  
 }
