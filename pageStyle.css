@@ -353,9 +353,9 @@ li::before {
   top: -0.15rem; /* 垂直微调 */
 }
 
-@media (min-width: 1921px) {
+/* @media (min-width: 1921px) {
   html {
-    font-size: 0.7vw; /* 可调节基准字体大小 */
+    font-size: 0.7vw;
   }
 
   body {
@@ -401,56 +401,34 @@ li::before {
     font-size: 2vw;
     width: 3vw;
     height: 3vw;
-  }
+  } */
 
   @media (max-width: 768px) {
     .mycoverImage img {
       border-radius: 3rem !important;
     }
 
-    .cover-content {
-      flex-direction: column;
-      align-items: stretch;
-    }
-  
-    .cover-left,
-    .cover-right {
-      max-width: 100%;
-      width: 100%;
-    }
-
-    .tag {
-      width: 100%;
-      justify-content: flex-start;
-      gap: 0.4rem 0.6rem;
-      margin-top: 1rem;
-    }
-  
-    .tag p {
-      font-size: 0.85rem;
-      padding: 0.25rem 0.6rem;
-      box-shadow: 1px 2px 0px #000;
-    }
-
-    .app-icons {
-      width: 100%;
-      gap: 0.6rem;
-      margin-top: 0.8rem;
-    }
-  
-    .app-icons img {
-      width: 40px !important;
-      height: 40px !important;
-      box-shadow: 1px 2px 0px #000;
-    }
-  
-    .cover-right {
-      max-width: 100%;
-    }
-
+   
     body {
       margin: 5%;
     }
+
+    .cover-left{
+      max-width: 100%;
+    }
+
+    .app-icons{
+      margin-top: 0rem;
+    }
+    .cover-right {
+      max-width: 100%;
+  }
+  .assetslayout{
+    margin-top: 0 !important;
+  }
+  h2{
+    margin-top: 0;
+  }
 
     .close {
       font-size: 1.8rem;
@@ -464,7 +442,36 @@ li::before {
       max-width: 95%;
       max-height: 85%;
     }
+
+    .video-container {
+      margin: 0;
+      margin-bottom: 20px !important;
+    }
+
+    .details {
+      border: 1.5px solid #382626;
+      border-radius: 1rem;
+      background: var(--main-red);
+      padding: 1rem;
+      color: #f9f5f0;
+    }
+    
+    .details h3,
+    .details p {
+      margin: 0 0 1rem 0; 
+    }
+    .section-divider {
+      width: 100% !important; 
+      margin: 0 !important;
+    }
+    .visual-grid{
+      gap:0.3rem;
+    }
+    .visual-grid img {
+      border-radius: 1rem;
+      border: 1.5px solid black;
+    }
   
   }
   
-}
+
