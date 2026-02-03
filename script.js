@@ -169,3 +169,6 @@ function filter(category) {
 }
 filter('other'); // 试试看只显示games类别
 
+document
+  .querySelectorAll('#works img')
+  .forEach(img => img.setAttribute('loading', 'lazy'));
